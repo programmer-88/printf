@@ -69,15 +69,12 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
-<<<<<<< HEAD
-=======
 	else
 	{
 		_putchar(*format);
 		count++;
 	}
 	format++;
->>>>>>> 958204f (fixed loop in _printf)
 	va_end(arg);
 	return (count);
 }
