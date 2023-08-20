@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	char *str;
 
 	va_start(arg, format);
-	if (*format)
+	while (*format)
 	{
 		if (*format == '%')
 		{
@@ -41,6 +41,28 @@ int _printf(const char *format, ...)
 			_putchar('%');
 			count++;
 		}
+		}
+		else if (*format == 'r')
+		{
+			str = va_arg(arg, char *);
+
+			if (str == NULL)
+			{
+				_puts("(null)");
+				count += 6;
+			}
+			else
+			{
+				int len = 0;
+
+				while (str[len])
+					len++;
+				for (int i = len - 1; i >= 0; i--)
+				{
+					_putchar(str[i]);
+					count++;
+				}
+			}
 		}
 		else
 		{
