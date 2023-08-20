@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -35,8 +36,7 @@ int _printf(const char *format, ...)
 				count++;
 			}
 		}
-		else
-			(*format == '%')
+		else if (*format == '%')
 		{
 			_putchar('%');
 			count++;
@@ -44,18 +44,11 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar('%');
 			_putchar(*format);
-			count += 2;
+			count++;
 		}
+		format++;
 	}
-	else
-	{
-		_putchar(*format);
-		count++;
-	}
-	format++;
-
 	va_end(arg);
 	return (count);
 }
