@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int x, count = 0;
+	int count = 0;
 	char *str;
 
 	va_start(arg, format);
@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 		else if (*format == 's')
 		{
 			str = va_arg(arg, char *);
-			_puts(*str);
+			_puts(str);
 			count += _strlen(str);
 		}
 		}
