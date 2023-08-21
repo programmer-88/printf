@@ -12,4 +12,6 @@ int _printf(const char *format, ...);
 
 void _puts(const char *str);
 
+int _strlen(const char *s);
+
 #endif
