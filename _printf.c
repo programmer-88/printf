@@ -5,6 +5,7 @@
  * @format: format of argument
  * Return: number of characters printed
 */
+
 int _printf(const char *format, ...)
 {
 	va_list arg;
