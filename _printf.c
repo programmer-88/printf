@@ -7,19 +7,20 @@
 */
 int _printf(const char *format, ...)
 {
-	unsigned int i , c = 0;
+	unsigned int i, c = 0;
 
 	va_list arg;
+
 	va_start(arg, format);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format [i] != '%')
+		if (format[i] != '%')
 		{
 			charprnt(format[i]);
 		}
-		
+		c++;
 	}
-	
+	return (c);
 
 }
