@@ -19,11 +19,12 @@ int _printf(const char *format, ...)
 		{
 			charprnt(format[i]);
 		}
-		if (format[i] == '%' && format[i + 1] == 'c')
+		else if (format[i + 1] == 'c')
 		{
 			charprnt(va_arg(arg, int));
 			i++;
 		}
+
 
 		c++;
 	}
