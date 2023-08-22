@@ -7,7 +7,7 @@
 */
 int _printf(const char *format, ...)
 {
-	unsigned int i, s_c = 0, c = 0;
+	unsigned int i, c = 0;
 	va_list arg;
 
 	va_start(arg, format);
@@ -25,9 +25,8 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i + 1] == 's')
 		{
-			s_c = strput(va_arg(arg, char *));
+			strput(va_arg(arg, char *));
 			i++;
-			c += (s_c - 1);
 		}
 		else if (format[i + 1] == '%')
 		{
