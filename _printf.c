@@ -7,7 +7,7 @@
 */
 int _printf(const char *format, ...)
 {
-	unsigned int i, s_c, c = 0;
+	unsigned int i, s_c = 0, c = 0;
 
 	va_list arg;
 
