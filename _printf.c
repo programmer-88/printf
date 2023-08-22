@@ -7,74 +7,19 @@
 */
 int _printf(const char *format, ...)
 {
+	unsigned int i , c = 0;
+
 	va_list arg;
-	int x, count = 0;
-	char *str;
-
 	va_start(arg, format);
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			format++;
-		if (*format == 'c')
-		{
-			x = va_arg(arg, int);
-			_putchar(x);
-			count++;
-		}
-		else if (*format == 's')
-		{
-			str = va_arg(arg, char *);
-			while (*str)
-			{
-				_putchar(*str);
-				str++;
-				count++;
-			}
-		}
-		else if (*format == '%')
-		{
-			_putchar('%');
-			count++;
-		}
-		}
-		else if (*format == 'r')
-		{
-			str = va_arg(arg, char *);
 
-			if (str == NULL)
-			{
-				_puts("(null)");
-				count += 6;
-			}
-			else
-			{
-				int len = 0;
-				int i;
-
-				while (str[len])
-					len++;
-				for (i = len - 1; i >= 0; i--)
-				{
-					_putchar(str[i]);
-					count++;
-				}
-			}
-		}
-		else
-		{
-			_putchar(*format);
-			count++;
-		}
-		format++;
-	}
-	else
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		_putchar(*format);
-		count++;
+		if (format [i] != '%')
+		{
+			charprnt(format[i]);
+		}
+		
 	}
-	format++;
-	va_end(arg);
-	return (count);
+	
+
 }
