@@ -7,11 +7,8 @@
 #include <unistd.h>
 
 int charprnt(char c);
-
 int _printf(const char *format, ...);
+int strput(char *c);
 
-void _puts(const char *str);
-
-int _strlen(const char *s);
 
 #endif
