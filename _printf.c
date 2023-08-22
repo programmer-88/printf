@@ -8,7 +8,6 @@
 int _printf(const char *format, ...)
 {
 	unsigned int i, s_c = 0, c = 0;
-
 	va_list arg;
 
 	va_start(arg, format);
@@ -34,11 +33,8 @@ int _printf(const char *format, ...)
 		{
 			charprnt('%');
 		}
-
 		c += 1;
 	}
-
 	va_end(arg);
 	return (c);
-
 }
