@@ -19,8 +19,16 @@ int _printf(const char *format, ...)
 		{
 			charprnt(format[i]);
 		}
+		if (format[i] == '%' && format[i + 1] == 'c')
+		{
+			charprnt(va_arg(arg, int));
+			i++;
+		}
+
 		c++;
 	}
+
+	va_end(arg);
 	return (c);
 
 }
