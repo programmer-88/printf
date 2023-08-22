@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include "main.h"
-
 /**
  * _printf - produces output according to format
  * @format: format of argument
  * Return: number of characters printed
 */
-
 int _printf(const char *format, ...)
 {
 	va_list arg;
@@ -28,7 +26,6 @@ int _printf(const char *format, ...)
 		else if (*format == 's')
 		{
 			str = va_arg(arg, char *);
-
 			while (*str)
 			{
 				_putchar(*str);
@@ -72,6 +69,15 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
+<<<<<<< HEAD
+=======
+	else
+	{
+		_putchar(*format);
+		count++;
+	}
+	format++;
+>>>>>>> 958204f (fixed loop in _printf)
 	va_end(arg);
 	return (count);
 }
