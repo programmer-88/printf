@@ -5,47 +5,41 @@
  * @format: format of argument
  * Return: number of characters printed
 */
-
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	unsigned int i, s_c = 0, c = 0;
+	int c = 0;
 
 	va_start(arg, format);
 
-	if (format == NULL)
-		return (-1);
-
-	for (i = 0; format[i] != '\0'; i++)
+	while (*format != '\0')
 	{
-		if (format[i] != '%')
-		{
-			charprnt(format[i]);
-		}
-		else if (format[i + 1] == 'c')
-		{
-			charprnt(va_arg(arg, int));
-			i++;
-		}
-		else if (format[i + 1] == 's')
-		{
-			char *str = va_arg(arg, char *);
-
-			while (*str)
-			{
-				charprnt(*str);
-				str++;
-				s_c++;
-			}
-			i++;
-			c += (s_c - 1);
-		}
-		else if (format[i + 1] == '%')
-		{
-			charprnt('%');
-		}
+	if (*format == '%')
+	{
+		format++;
+		switch (*format)
+	{
+		case 'c':
+			c += printf("%c", va_arg(arg, int));
+			break;
+		case 's':
+			c += printf("%s", va_arg(arg, char*));
+			break;
+		case '%':
+			c += printf("%%");
+			break;
+		default:
+			break;
+	}
+	}
+	else
+	{
+		printf("%c", *format);
 		c++;
 	}
+	format++;
+	}
+
 	va_end(arg);
 	return (c);
 }
