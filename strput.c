@@ -8,7 +8,7 @@
 
 int strput(char *c)
 {
-	int i = 0;
+	int x = 0, i;
 
 	if (c)
 	{
@@ -17,5 +17,5 @@ int strput(char *c)
 			charprnt(c[i]);        }
 
 	}
-	return (i);
+	return (x);
 }
