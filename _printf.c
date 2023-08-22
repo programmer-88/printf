@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 
 	va_start(arg, format);
 
-	while (*format != '\0')
+	while (*format)
 	{
 	if (*format == '%')
 	{
@@ -21,21 +21,21 @@ int _printf(const char *format, ...)
 		switch (*format)
 	{
 		case 'c':
-			c += printf("%c", va_arg(arg, int));
+			charprnt(va_arg(arg, int));
+			c++;
 			break;
 		case 's':
-			c += printf("%s", va_arg(arg, char*));
+			c += strput(va_arg(arg, char *));
 			break;
 		case '%':
-			c += printf("%%");
-			break;
-		default:
+			charprnt('%');
+			c++;
 			break;
 	}
 	}
 	else
 	{
-		printf("%c", *format);
+		charprnt(*format);
 		c++;
 	}
 	format++;
